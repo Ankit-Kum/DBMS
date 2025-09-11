@@ -1,0 +1,42 @@
+SHUBHANSHI DWIVEDI
+PGDAC_AUG_2025
+TASK-1 DBMS
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SELECT contactFirstName, contactLastName FROM customers;
+This query selects the first and last names of all contacts from the customers table.
+
+
+SELECT COUNT(*) AS TotalCustomers FROM customers;
+This counts the total number of rows (customers) in the customers table and aliases the result as TotalCustomers.
+
+
+SELECT contactFirstName, contactLastName FROM customers WHERE country = 'USA';
+This selects the first and last names of contacts for customers located in the 'USA'.
+
+
+SELECT DISTINCT State FROM customers;
+This retrieves a list of all unique states from the customers table, with no duplicates.
+
+
+SELECT contactFirstName, contactLastName FROM customers WHERE contactLastName LIKE 'S%';
+This selects the first and last names of contacts whose last name starts with the letter 'S'. The % is a wildcard character.
+
+
+SELECT contactFirstName, contactLastName FROM customers WHERE State = 'Texas';
+This selects the first and last names of contacts for customers located in the state of 'Texas'.
+
+
+SELECT contactFirstName, contactLastName FROM customers WHERE contactLastName LIKE '%Smith%';
+This selects the first and last names of contacts whose last name contains the substring 'Smith'.
+
+
+SELECT contactFirstName, contactLastName FROM customers WHERE city = 'Chicago';
+This selects the first and last names of contacts for customers located in the city of 'Chicago'.
+
+
+SELECT contactFirstName, contactLastName FROM customers WHERE (state = 'Florida' OR state = 'California');
+This selects the first and last names of contacts for customers who are located in either 'Florida' or 'California'.
+
+—->  A few queries have been skipped as the table did not contain email and registration date columns .
+
