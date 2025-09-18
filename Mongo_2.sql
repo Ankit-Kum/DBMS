@@ -183,7 +183,6 @@ db.collection.insertOne(
    { writeConcern: <document>}
 )
 
-
 mongosh bookdb
 
 db.books.insertOne({ 
@@ -283,7 +282,8 @@ db.books.insertMany(
 
 In this example, the _id: 3 is duplicated, MongoDB threw an error.
 
-Since this example used the unordered insert, the operation continued to insert the documents with _id 4 and 5 into the books collection.
+Since this example used the unordered insert, 
+the operation continued to insert the documents with _id 4 and 5 into the books collection.
 
 The following statement retrieves the inserted documents:
 
@@ -291,14 +291,16 @@ db.books.find()
 
 # MongoDB findOne() method
 
-The findOne() returns a single document from a collection that satisfies the specified condition.
+The findOne() returns a single document from a 
+collection that satisfies the specified condition.
 
 The findOne() method has the following syntax:
 
 db.collection.findOne(query, projection)
 
     The query is a document that specifies the selection criteria.
-    The projection is a document that specifies the fields in the matching document that you want to return.
+    The projection is a document that specifies the fields in 
+    the matching document that you want to return.
 
 If you omit the query, the findOne() returns the first document in the collection according to the natural order which is the order of documents on the disk.
 If you dont pass the projection argument, then findOne() will include all fields in the matching documents.
@@ -381,6 +383,7 @@ db.books.find({_id: 10})
 db.books.find({ categories: 'Java'}, { title: 1,isbn: 1})
 
 -- To remove the _id field from the matching documents, you need to explicitly specify _id: 0 in the projection argument like this:
+
 db.books.find({ categories: 'Java'}, { title: 1,isbn: 1,_id: 0})
 
 # Introduction to the MongoDB projection
@@ -388,7 +391,7 @@ db.books.find({ categories: 'Java'}, { title: 1,isbn: 1,_id: 0})
 In MongoDB, projection simply means selecting fields to return from a query.
 
 By default, the find() and findOne() methods return all fields in matching documents. 
-Most of the time you don’t need data from all the fields.
+Most of the time you dont need data from all the fields.
 
 
 { <field>: value, ...}
@@ -396,7 +399,8 @@ Most of the time you don’t need data from all the fields.
 If the value is 1 or true, the <field> is included in the matching documents. 
 In case the value is 0 or false, it is suppressed from the returned documents.
 
-If the projection document is empty {}, all the available fields will be included in the returned documents.
+If the projection document is empty {}, 
+all the available fields will be included in the returned documents.
 
 --To specify a field in an embedded document, you use the following dot notation:
 
@@ -493,14 +497,17 @@ db.products.insertMany([
 
 1) Using $eq operator to check if a field equals a specified value
 
-db.products.find({
-    price: {
-        $eq: 899
-    }
-}, {
+db.products.find(
+    {
+    price: 
+            {
+              $eq: 899
+             }
+    }   , 
+    {
     name: 1,
     price: 1
-})
+    })
 
 The query is equivalent to the following:
 /*db.products.find({
@@ -581,7 +588,7 @@ db.products.insertMany([
 
  db.products.find({
     price: {
-        $lte: 799
+        $lte: 799  -- <=
     }
 }, {
     name: 1,
@@ -645,6 +652,7 @@ db.products.find({
 
 # Logical Query Operators
  -- MongoDB $and operator
+
  $and :[{expression1}, {expression2},...]
 
  db.products.insertMany([
@@ -663,13 +671,18 @@ $and operator to select all documents in the products collection where:
         the value in the color field is either "white" or "black"
 
 db.products.find({
-    $and: [{
+    $and: 
+    [
+        {
         price: 899
-    }, {
-        color: {
-            $in: ["white", "black"]
+        }, 
+        {
+            color: 
+            {
+                $in: ["white", "black"]
+            }
         }
-    }]
+    ]
 }, {
     name: 1,
     price: 1,
@@ -698,13 +711,17 @@ The following example shows how to use the $not operator to find documents where
 the price field is not greater than 699.
 do not contain the price field.
 
-db.products.find({
-    price: {
-        $not: {
-            $gt: 699
+db.products.find(
+    {
+        price: 
+        {
+            $not: 
+                {
+                    $gt: 699
+                }
         }
-    }
-}, {
+    }, 
+{
     name: 1,
     price: 1
 })
@@ -727,6 +744,9 @@ It returns documents where:
     the value is the price field is not 899
     and the color array does not have any "gold" element.
 
+
+
+
 # Updating Documents
 
 db.collection.updateOne(filter, update, options)
@@ -747,6 +767,21 @@ db.products.updateOne({
         price: 899
     }
 })
+
+db.products
+(
+    { "ji" : 10,
+       "hi" : 220,
+       "depy" :
+       {
+        
+       }       
+        {
+
+        }
+    }
+
+)
 
 db.products.findOne({ _id: 1 }, { name: 1, price: 1 })
 
