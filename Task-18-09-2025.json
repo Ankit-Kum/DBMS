@@ -1,0 +1,73 @@
+Scenario: Online Bookstore 📚
+You're a developer for a popular online bookstore. Your task is to manage the store's data using MongoDB. You have a database named bookstore with two collections: books and authors.
+
+The books collection has documents with the following structure:
+
+{
+  "_id": ObjectId("..."),
+  "title": "The Hitchhiker's Guide to the Galaxy",
+  "author_id": ObjectId("..."), // References a document in the authors collection
+  "genre": "Science Fiction",
+  "publication_date": ISODate("1979-10-12T00:00:00Z"),
+  "price": 12.99,
+  "in_stock": true,
+  "reviews": [
+    {
+      "user_name": "Alice",
+      "rating": 5,
+      "comment": "A hilarious and mind-bending read."
+    },
+    {
+      "user_name": "Bob",
+      "rating": 4,
+      "comment": "Funny, but the ending was a bit confusing."
+    }
+  ]
+}
+
+The authors collection has documents with this structure:
+{
+  "_id": ObjectId("..."),
+  "name": "Douglas Adams",
+  "bio": "English writer, humorist, and dramatist.",
+  "born_date": ISODate("1952-03-11T00:00:00Z"),
+  "country": "United Kingdom"
+}
+
+Question 1: Data Manipulation (CRUD)
+Write MongoDB queries to perform the following tasks:
+Create: Insert a new book into the books collection with at least two fields, including title and author_id (you can use ObjectId("60d5ec49e4d5a9b8f8a1a3e6") for a hypothetical author ID).
+Read: Find all books written by a specific author. Use the author's _id to perform the query.
+Update: Increase the price of the book "The Hitchhiker's Guide to the Galaxy" by 10%.
+Delete: Remove the book with the title "The Hitchhiker's Guide to the Galaxy" from the books collection.
+
+Question 2: Document Structure and CRUD Operations
+
+{
+  "_id": ObjectId("..."),
+  "title": "Bohemian Rhapsody",
+  "artist": "Queen",
+  "album": "A Night at the Opera",
+  "release_year": 1975,
+  "genre": ["Rock", "Progressive Rock"],
+  "duration_seconds": 354,
+  "in_stock": true,
+  "streams": 1500000000,
+  "metadata": {
+    "is_explicit": false,
+    "label": "EMI Records"
+  },
+  "ratings": [
+    {"user_id": 1, "score": 5, "comment": "A masterpiece!"},
+    {"user_id": 2, "score": 4, "comment": "Great song, but a bit long."}
+  ]
+}
+Write MongoDB queries to perform the following tasks:
+
+Read: Find all songs released by the artist "Queen" that have more than 1 billion streams.
+
+Update: Increase the streams count for the song "Bohemian Rhapsody" by 100,000.
+
+Create: Insert a new song with at least four fields, including an array for genre and a nested document for metadata.
+
+Delete: Remove all songs from the songs collection that were released before the year 1970.
